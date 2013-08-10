@@ -79,8 +79,6 @@ function! s:MoveLineDown() range
         let distance = distance + v:count - 1
     endif
 
-    echom distance
-
     if (line('.') + distance) > line('$')
         execute 'm $'
         normal! ==
@@ -100,5 +98,5 @@ if g:move_map_keys
     vmap <C-j> <Plug>MoveBlockDown
     vmap <C-k> <Plug>MoveBlockUp
     nmap <A-j> <Plug>MoveLineDown
-    nmap <A-k> <Plug>MoveLineDown
+    nmap <A-k> <Plug>MoveLineUp
 endif

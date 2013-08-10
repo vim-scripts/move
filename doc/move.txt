@@ -1,7 +1,7 @@
 *move.txt* Moving lines and selections up and even down
 
 Author: Matthias Vogelgesang <github.com/matze>
-License: Same terms as Vim itself (see |move-license|)
+License: MIT (see |move-license|)
 
 ===============================================================================
 Contents                                                        *move-contents*
@@ -62,8 +62,11 @@ This plugin is copyright by Matthias Vogelgesang and licensed under the MIT
 license.
 
 ===============================================================================
-3. Changelog                                                     *move-license*
+3. Changelog                                                   *move-changelog*
 
+v1.1
+    * Released on 08/10/13
+    * Minor bug fixes (helptags, mapping, docs)
 v1.0
     * Released on 08/10/13
 
