@@ -1,0 +1,5 @@
+This is a mirror of http://www.vim.org/scripts/script.php?script_id=4687
+
+move is a Vim plugin that moves lines and selections in a visual manner using key maps in normal and visual mode.
+
+See this short demo screen cast for a first impression: http://i.imgur.com/gIw2CCD.gif
