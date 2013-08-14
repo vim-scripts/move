@@ -2,4 +2,14 @@ This is a mirror of http://www.vim.org/scripts/script.php?script_id=4687
 
 move is a Vim plugin that moves lines and selections in a visual manner using key maps in normal and visual mode.
 
-See this short demo screen cast for a first impression: http://i.imgur.com/gIw2CCD.gif
+Read more about the plugin at 
+
+   http://bloerg.net/2013/08/10/shift-lines-and-selections-faster-with-vim-move.html
+
+or watch a short demo screen cast for a first impression
+
+    http://i.imgur.com/gIw2CCD.gif
+
+Source code and some more details are available at
+
+    https://github.com/matze/vim-move

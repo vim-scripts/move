@@ -24,6 +24,11 @@ To enable custom key maps you must disable the automatic key maps with >
 
     let g:move_map_keys = 0
 
+The plugin provide finger-friendly mappings to move text around by using <jk>
+keys. Your can specify the key modifier that uses in key bindings with >
+
+    let g:move_key_modifier = 'M'
+
 All mappings can be prefixed with a {count} and will move {count} steps
 instead of one.
 
@@ -32,28 +37,56 @@ instead of one.
 
 Move selected block down by one line.
 
-Default: vmap <C-j> <Plug>MoveBlockDown
+Default: vmap <A-j> <Plug>MoveBlockDown
 
 -------------------------------------------------------------------------------
 2.2 <Plug>MoveBlockUp
 
 Move selected block up by one line.
 
-Default: vmap <C-k> <Plug>MoveBlockUp
+Default: vmap <A-k> <Plug>MoveBlockUp
 
 -------------------------------------------------------------------------------
 2.3 <Plug>MoveLineDown
 
-Move current down by one line.
+Move current line down by one.
 
 Default: nmap <A-j> <Plug>MoveLineDown
 
 -------------------------------------------------------------------------------
 2.4 <Plug>MoveLineUp
 
-Move current up by one line.
+Move current line up by one.
 
 Default: nmap <A-k> <Plug>MoveLineUp
+
+-------------------------------------------------------------------------------
+2.5 <Plug>MoveBlockHalfPageDown
+
+Move selected block down by half a page size
+
+Default: not mapped
+
+-------------------------------------------------------------------------------
+2.6 <Plug>MoveBlockHalfPageUp
+
+Move selected block up by half a page size
+
+Default: not mapped
+
+-------------------------------------------------------------------------------
+2.7 <Plug>MoveLineHalfPageDown
+
+Move current line down by half a page size.
+
+Default: not mapped
+
+-------------------------------------------------------------------------------
+2.7 <Plug>MoveLineHalfPageUp
+
+Move current line up by half a page size.
+
+Default: not mapped
 
 ===============================================================================
 3. License                                                       *move-license*
@@ -64,6 +97,12 @@ license.
 ===============================================================================
 3. Changelog                                                   *move-changelog*
 
+v1.2
+    * Released on 08/14/13
+    * Add key modifier for bindings (@vitalk)
+    * Use <A-j> and <A-k> in normal and visual mode (@vitalk)
+    * Add <Plug>Move{Block,Line}HalfPage{Up,Down} to move text in larger
+      increments.
 v1.1
     * Released on 08/10/13
     * Minor bug fixes (helptags, mapping, docs)
