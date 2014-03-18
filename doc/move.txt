@@ -32,6 +32,11 @@ keys. Your can specify the key modifier that uses in key bindings with >
 All mappings can be prefixed with a {count} and will move {count} steps
 instead of one.
 
+By default the plugin indents the buffer after every move operation. Can be 
+disabled with >
+
+	let g:move_auto_indent = 0
+
 -------------------------------------------------------------------------------
 2.1 <Plug>MoveBlockDown
 
@@ -63,14 +68,14 @@ Default: nmap <A-k> <Plug>MoveLineUp
 -------------------------------------------------------------------------------
 2.5 <Plug>MoveBlockHalfPageDown
 
-Move selected block down by half a page size
+Move selected block down by half a page size.
 
 Default: not mapped
 
 -------------------------------------------------------------------------------
 2.6 <Plug>MoveBlockHalfPageUp
 
-Move selected block up by half a page size
+Move selected block up by half a page size.
 
 Default: not mapped
 
@@ -96,6 +101,12 @@ license.
 
 ===============================================================================
 3. Changelog                                                   *move-changelog*
+
+v1.3
+    * Released on 03/18/14
+    * Add g:move_auto_indent option to en-/disable auto indentation
+    * Do not modify readonly buffers
+    * Silence :move commands to avoid first-time errors on read-only files.
 
 v1.2
     * Released on 08/14/13

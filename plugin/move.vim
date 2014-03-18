@@ -4,7 +4,6 @@
 " Author: Matthias Vogelgesang <github.com/matze>
 " =============================================================================
 
-
 if exists('loaded_move') || &cp
     finish
 endif
@@ -19,11 +18,12 @@ if !exists('g:move_key_modifier')
     let g:move_key_modifier = 'A'
 endif
 
+if !exists('g:move_auto_indent')
+    let g:move_auto_indent = 1
+endif
+
 function! s:ResetCursor()
-    normal! gv
-    normal! =
-    normal! gv
-    normal! ^
+    normal! gv=gv^
 endfunction
 
 function! s:MoveBlockDown(start, end, count)
@@ -38,8 +38,12 @@ function! s:MoveBlockDown(start, end, count)
         return
     endif
 
-    execute a:start "," a:end "m " next_line
-    call s:ResetCursor()
+    execute "silent" a:start "," a:end "m " next_line
+    if (g:move_auto_indent == 1)
+        call s:ResetCursor()
+    else
+        normal! gv
+    endif
 endfunction
 
 function! s:MoveBlockUp(start, end, count)
@@ -54,8 +58,12 @@ function! s:MoveBlockUp(start, end, count)
         return
     endif
 
-    execute a:start "," a:end "m " prev_line
-    call s:ResetCursor()
+    execute "silent" a:start "," a:end "m " prev_line
+    if (g:move_auto_indent == 1)
+        call s:ResetCursor()
+    else
+        normal! gv
+    endif
 endfunction
 
 function! s:MoveLineUp(count) range
@@ -66,13 +74,18 @@ function! s:MoveLineUp(count) range
     endif
 
     if (line('.') - distance) < 0
-        execute 'm 0'
-        normal! ==
+        execute 'silent m 0'
+        if (g:move_auto_indent == 1)
+            normal! ==
+        endif
         return
     endif
 
-    execute 'm-' . distance
-    normal! ==
+    execute 'silent m-' . distance
+
+    if (g:move_auto_indent == 1)
+        normal! ==
+    endif
 endfunction
 
 function! s:MoveLineDown(count) range
@@ -83,13 +96,17 @@ function! s:MoveLineDown(count) range
     endif
 
     if (line('.') + distance) > line('$')
-        execute 'm $'
-        normal! ==
+        execute 'silent m $'
+        if (g:move_auto_indent == 1)
+            normal! ==
+        endif
         return
     endif
 
-    execute 'm+' . distance
-    normal! ==
+    execute 'silent m+' . distance
+    if (g:move_auto_indent == 1)
+        normal! ==
+    endif
 endfunction
 
 function! s:MoveBlockOneLineUp() range
